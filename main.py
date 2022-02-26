@@ -1,14 +1,11 @@
-import utility
-import shop
-from random_game import RandGame
-from pyjokes import get_jokes
-
-# print(utility.add(56, 23))
-# print(utility.minus(56, 23))
-# print(shop.buy('Money, Video Games, onions, tuRN'))
+from utility import performance
 
 
 if __name__ == '__main__':
-    # RandGame()
-    for jokes in get_jokes('en', 'all'):
-        print(jokes)
+    @performance
+    def check():
+        for i in range(100000):
+            num = i * 5
+        print(num)
+
+    check()
