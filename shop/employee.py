@@ -11,11 +11,11 @@ class Employee:
 
     @property
     def email(self):
-        return f"{self.first_name}.{self.last_name}@email.com"
+        return f"{self.first_name.lower()}.{self.last_name.lower()}@decagon.dev"
 
     @property
     def fullname(self):
-        return f"{self.first_name} {self.last_name}"
+        return f"{self.first_name.title()} {self.last_name.title()}"
 
     def apply_raise(self):
         self.pay = int(self.pay * self.raise_amt)
