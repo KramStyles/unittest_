@@ -6,7 +6,10 @@ def add(num1, num2):
 
 
 def minus(num1, num2):
-    return num1 - num2
+    try:
+        return num1 - num2
+    except TypeError as err:
+        return err
 
 
 def performance(fn):
