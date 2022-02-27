@@ -3,6 +3,14 @@ from shop.employee import Employee
 
 
 class TestEmployee(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls) -> None:
+        print("Let's say we need to populate our database here!")
+
+    @classmethod
+    def tearDownClass(cls) -> None:
+        print("We depopulate our database here!")
+
     def setUp(self) -> None:
         self.emp1 = Employee('Michael', 'Jamie', 450000)
         self.emp2 = Employee('Mark', 'Eke', 900000)

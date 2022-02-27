@@ -1,3 +1,6 @@
+from requests import request
+
+
 class Employee:
     """
     A sample employee class used for unit testing
@@ -19,3 +22,8 @@ class Employee:
 
     def apply_raise(self):
         self.pay = int(self.pay * self.raise_amt)
+
+    def get_schedule(self):
+        resp = request('GET', "https://october.com/getit")
+        if resp.ok: return resp.text
+        else: return "Bad response"
