@@ -24,6 +24,8 @@ class Employee:
         self.pay = int(self.pay * self.raise_amt)
 
     def get_schedule(self):
-        resp = request('GET', "https://october.com/getit")
-        if resp.ok: return resp.text
-        else: return "Bad response"
+        resp = request('GET', "https://company.com")
+        if resp.ok:
+            return resp.text
+        else:
+            return "Bad response"
