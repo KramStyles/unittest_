@@ -49,9 +49,14 @@ class TestEmployee(unittest.TestCase):
             mocked.return_value.text = 'Success'
 
             schedule = self.emp1.get_schedule()
-            print(schedule, ' is this')
             mocked.assert_called_with('GET', 'https://company.com')
             self.assertEqual(schedule, 'Success')
+
+            mocked.return_value.ok = False
+            schedule = self.emp2.get_schedule('/mista')
+            mocked.assert_called_with('GET', 'https://company.com/mista')
+            self.assertEqual(schedule, 'Bad response')
+
 
 
 if __name__ == '__main__':
