@@ -23,8 +23,8 @@ class Employee:
     def apply_raise(self):
         self.pay = int(self.pay * self.raise_amt)
 
-    def get_schedule(self, extra=''):
-        resp = request('GET', f"https://company.com{extra}")
+    def get_schedule(self, extra='https://company.com'):
+        resp = request('GET', extra)
         if resp.ok:
             return resp.text
         else:

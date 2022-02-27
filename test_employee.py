@@ -47,16 +47,16 @@ class TestEmployee(unittest.TestCase):
         with patch('shop.employee.request') as mocked:
             mocked.return_value.ok = True
             mocked.return_value.text = 'Success'
-
             schedule = self.emp1.get_schedule()
+            print(schedule)
             mocked.assert_called_with('GET', 'https://company.com')
             self.assertEqual(schedule, 'Success')
 
             mocked.return_value.ok = False
-            schedule = self.emp2.get_schedule('/mista')
-            mocked.assert_called_with('GET', 'https://company.com/mista')
+            schedule = self.emp2.get_schedule('https://platform.com')
+            print(schedule)
+            mocked.assert_called_with('GET', 'https://platform.com')
             self.assertEqual(schedule, 'Bad response')
-
 
 
 if __name__ == '__main__':
